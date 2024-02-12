@@ -1,8 +1,8 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 
 function ToDoList() {
 
-    const [tasks, setTasks] = useState(["Eat breakfast", "Take shower", "Walk the dog"]);
+    const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
 
     function handleInputChange(event) {
@@ -10,25 +10,41 @@ function ToDoList() {
     };
 
     function addTask() {
-
+        
+        if(newTask.trim() !== ""){
+            setTasks(t => [...t, newTask])
+            setNewTask("");
+        }
     };
 
     function deleteTask(index) {
 
+        const updatedTasks = tasks.filter((_, i) => i !== index)
+        setTasks(updatedTasks);
     };
 
     function moveTaskUp(index) {
 
+        if(index > 0){
+            const updatedTasks = [...tasks];
+            [updatedTasks[index], updatedTasks[index - 1]] = [updatedTasks[index - 1], updatedTasks[index]]
+            setTasks(updatedTasks);
+        }
     };
 
     function moveTaskDown(index) {
 
+        if(index < tasks.length - 1){
+            const updatedTasks = [...tasks];
+            [updatedTasks[index], updatedTasks[index + 1]] = [updatedTasks[index + 1], updatedTasks[index]]
+            setTasks(updatedTasks);
+        }
     };
 
     return(<>
         <div className='to-do-list'>
             <h1>To-Do-List</h1>
-            <div>
+            <div className='input-container'>
                 <input type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange} />
                 <button className="add-btn" onClick={addTask}>Add</button>
             </div>
