@@ -1,0 +1,44 @@
+.to-do-list {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+button {
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: backgrouind-color 0.5 ease;
+}
+
+.add-btn {
+    background-color: rgb(56, 171, 56);
+}
+
+.add-btn:hover {
+    background-color: rgb(41, 134, 41);
+}
+
+.del-btn {
+    background-color: rgb(171, 56, 56);
+}
+
+.del-btn:hover {
+    background-color: rgb(134, 41, 41);
+}
+
+.move-btn {
+    background-color: rgb(56, 108, 171);
+}
+
+.move-btn:hover {
+    background-color: rgb(38, 74, 117);
+}
